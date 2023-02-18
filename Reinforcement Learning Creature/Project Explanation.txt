@@ -1,0 +1,25 @@
+Reinforcement Learning Creature:
+The intent of this project was to train a model using reinforcement learning techniques that can walk around a 2d plane, and using it's visual input, locate a white dot known as the 'prey'
+
+Environment Description:
+The environment is in a 20x20 2d plane, the middle being 0,0 and going out 10 in every direction
+The environment consists 16 green dots or 'foliage', spread equally around the start, same locations every time
+The prey will spawn at a random location each time, but minimum 5 units away in both x and y
+If you want to experience the environment run the hunting environment file and you can control it using wasd and look for the prey. Press q to quit
+The environment feeds it view to the model through a 64x32 pixel image, and also the model will be fed it's recent actions
+The environment's setup can be changed at the top of the huntingEnvironment file if you wish to edit it
+
+Graphics Engine:
+The graphics are run by calculating the location of objects relative to the camera using functions I made in the HuntingEnvironment class
+Once the locations are calculated, then I use the openCV2 circle function to draw them with their proper size and location
+
+AI model:
+The AI model is a DQN Agent using Tensorflow, using different models that can vary from agent to agent depending on the settings
+The hyperparameters can be adjusted at the top of the hunterTrainer file, including the parameters of the DQN's model
+
+Training your own model:
+After changing the hyperparameters you can just run the file to have it train
+At the end it will ask if you want to watch and then save the model, entering 'no' will stop these from happening
+After you save the model with a name run the policyLoader file, then enter the name of your model to see it again
+I have included a very well trained model named 'Double Foliage Circle' if you would like to see a working model
+All models are saved with a note about their hyperparams so if you would like to see my model's params feel free to open it's policy stats file

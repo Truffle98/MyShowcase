@@ -1,7 +1,7 @@
 Gesture Predictor - Supervised learning model to understand hand gestures, equipped with programs to learn yours easily
 Movement Tracker - Takes a series of images from a video and picks out the new things that come into the image, then using unsupervised learning to categorize them
 Password Encrypter - Software to store encrypted strings of your passwords so you can access them later and only have to remember a master key. Can also generate new passwords
-Reinforcement Learning Creature - Reinforcement learning model that finds a white dot in a 2d plane and runs towards it, made using a graphics engine I made
+Reinforcement Learning Creature - Reinforcement learning model that finds a white dot in a 2d plane and runs towards it, created using a graphics engine I made
 
 More detailed descriptions are found inside each folder, along with code for each project
 If you have any questions about my projects I would love to answer them, you can reach me best at tommy.m.fischer@gmail.com
