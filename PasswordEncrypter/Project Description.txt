@@ -1,0 +1,18 @@
+Password Encrypter:
+Software to encrypt and store passwords locally using a single master password. Also generates new passwords if requested. Can autotype usernames and passwords for the user
+
+How to use:
+Save info under a name, info is considered at least a password but can also include a username, must enter in a key that the info will be encrypted with (the key is the master password)
+When adding info if you do not want to make your own password, leaving the password field as is will have it auto generate a password
+You can tweak settings on the auto generation so it will include/disclude numbers or special characters, can also adjust character limit
+
+Once you have info saved then you can enter in your key and it will present you with all your info names
+You can select an info name and load up the username, password, or both, and after a few seconds it will type it out for you
+If you want to remove info you can do so by selecting it and clicking the 'delete info' button
+
+This software is very simple to use and easy to load up your passwords quickly, so long as you are the one who saved them
+
+Encrytion:
+The saved info is encrypted using the Windows system security cryptography library
+The key for decryption is just the master password that the user sets when adding saved info to the database
+All the encrypted data is saved in a text file in the same folder as the .exe for the program
