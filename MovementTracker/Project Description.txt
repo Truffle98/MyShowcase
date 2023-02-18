@@ -1,0 +1,37 @@
+Movement Tracker:
+The point of this project is to take frames from a video and locate anything new that comes into frame, then use unsupervised learning to categorize anything new
+
+Movement Tracking Algorithm:
+I made the algorithm myself but to load images I use OpenCV2
+The algorithm assumes the first image in the list is a empty picture with no objects in it, this is the reference image
+It then compares the next frame and checks the difference in RGB between the two frames
+Any cluster of pixels that has large RGB difference is then categorized as a 'blob', which is just a certain amount of pixels clustered together
+After it locates the blobs in that image, it will update the reference image with all new pixels from the new image EXCEPT where any blobs were located as to keep the image clean
+It will then take cutouts of where the blobs were and save them if requested
+To reduce noise from light or other small variations in RGB, a noise cancelling image is always used to subtract from the current RGB differences
+The noise cancelling image is always the previous reference image, so it will also be clear but it will be slowly adjusting to light or used to any small RGB differences
+All the constants for determining a blob can be found at the top of the movementTracker file, so you are able to adjust them for testing
+
+Using the programs:
+To use all the programs you should start by loading up frames from a video into the screenshots folder, assumes 50 frames are used but you can specify
+Screenshots can also be taken by the screenshotTaker file and those can be used
+I have already made two folders of screenshots with different amounts of time between each frame, both videos are a video for cats to watch I found on YouTube
+
+Then you run the movementTracker file, and if you want to save them or show the images and their blobs then it should be set to 'true' at the top
+The images that show are a little confusing, but the one with just red is the RGB differences, and the one with blue clusters is the blobs its detected
+It also just shows the images that its using, the reference image, the noise cancelling image, and the current image with potential objects, it also shows all the blobs it found
+If save_imgs is true then it will save all the blobs for you in the unrefinedBlobs folder
+
+After blobs are saved from the movementTracker file then they should be run through the blobRefiner program which just asks for user input saying if a blob is actually something of interest
+This file was made just to remove errors in the blobs before they're categorized
+When running the file just 'space' to accept a blob and save it into the refined folder
+
+To train the unsupervised learning model you just need to set the number of clusters, and if you wish the number of iterations
+Then you just run the objectPredictor file and it will show you it's clustered images
+I have populated the refinedBlobs folder so you can run without all the other steps
+
+Unsupervised Learning Model:
+The model uses K nearest clusters to categorize all the refined blobs, it uses Tensorflow
+The one problem with this algorithm is that you have to specify how many different objects are in the video, aka the amount of clusters
+Originally I was going to make it start at one cluster and then when it had low confidence in an object it would increase it's cluster size by one
+I was having a lot of problems with saving the model so I did not get to that point
