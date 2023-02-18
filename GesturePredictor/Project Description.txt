@@ -1,0 +1,18 @@
+Gesture Predictor:
+Uses the hand tracking library from mediapipe to track hands and use the location of the points on your finger to determine what hand gesture you are making
+
+Data:
+The data is a collection of points and their x and y distance from the center of your palm
+This is very easy data to collect in large batches and it is pretty generalized so if you move your hand away from the center of the camera it still works
+
+Model:
+The model just takes 40 inputs and has 12 neurons, based on supervised learning using Tensorflow
+It is fit to handle 11 different gestures and can easily add more if there's more data, the gestures can be seen in the code
+
+How to use:
+If you want to gather data you run the handDataCollector file and perform the gesture it requests from the console
+The data is automatically saved and you run the gesturePredictionModel to train, then run the gesturePredictor to use your trained model
+
+
+
+
